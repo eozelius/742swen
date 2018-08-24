@@ -1,0 +1,26 @@
+.headline-filter-container {
+  width: 100%;
+}
+
+.headline-filter-container div {
+  background-color: #fff;
+  color: #fff;
+  border: 1px solid #fff; 
+  margin: 0 0 2%;
+  cursor: pointer;
+}
+
+div.reset-filter {
+  width: 100%; 
+}
+
+div.reset-filter p {
+  color: #000;
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+}
+
+.headline-categories-container {
+  display: flex;
+}

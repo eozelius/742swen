@@ -1,0 +1,19 @@
+.headline-container {
+  width: 98%;
+  border: 1px solid #ccc;
+  display: block;
+  margin: 0 auto 2%;
+  padding: 1% 2%;
+}
+
+.headline-container p {
+  text-decoration: none;
+  color: #2d2e30;
+  font-weight: 600;
+  padding: 0;
+  line-height: 38px;
+}
+
+.headline-container .time {
+  float: right;
+}

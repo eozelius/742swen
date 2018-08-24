@@ -1,0 +1,72 @@
+.news-header {
+  color: #fff;
+  height: 80px;
+}
+
+.logo {
+  display: block;
+  width: 130px;
+  padding: 0;
+  height: 80px;
+  font-family: Arial,Helvetica,sans-serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.logo span {
+  display: block;
+  width: 100px;
+  line-height: 25px;
+  text-align:center
+}
+
+.logo .top {
+  background-color: #900;
+  background: linear-gradient(to bottom,#c00 0%,#900 50%,#a00 0%);
+  border: 1px solid #222;
+  width: 100px;
+  border-radius: 13px;
+  line-height: 25px;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin: 2px 0 3px;
+  color: #ffffff;
+  text-transform: normal;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(140,140,140,0.6), -1px -1px 1px rgba(0,0,0,0.67);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.2)
+}
+
+.logo .middle{
+  line-height: 20px;
+  font-size: 24px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 5px;
+  text-align: center;
+  text-shadow: -1px -1px 1px rgba(0,0,0,0.67);
+}
+
+.logo .bottom{
+  line-height: 16px;
+  font-size: 15px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 4.5px;
+  text-align: center;
+  text-shadow: -1px -1px 1px rgba(0,0,0,0.67);
+}
+
+@media screen and (max-width: 767px) {
+  .logo.navbar-brand {
+    display: none;
+  }
+
+  .news-header {
+    height: auto
+  }
+}

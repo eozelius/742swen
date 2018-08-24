@@ -1,0 +1,15 @@
+.story-container {
+  width: 98%;
+  border: 1px solid #ccc;
+  display: block;
+  margin: 0 auto 2%;
+  padding: 1% 2%;
+}
+
+.story-container .title {
+  font-size: 1.6em;
+}
+
+.story-container .body {
+  font-size: 1em;
+}
