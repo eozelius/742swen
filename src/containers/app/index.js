@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Feed from '../feed/feed'
+import Home from '../home/home'
 import Header from '../header'
 import Story from '../story/story'
 import 'bootstrap'
@@ -11,7 +11,7 @@ const App = () => (
     <Header/ >
       
     <main>
-      <Route exact path="/" component={Feed} />
+      <Route exact path="/" component={Home} />
       <Route exact path="/story/:id" component={Story} />
     </main>
   </div>

@@ -1,4 +1,3 @@
-import { mock_headlines } from '../mock_data/796491'
 import Api from '../api/Api'
 
 // ACTIONS ////
@@ -14,7 +13,7 @@ function requestHeadlines() {
 function receiveHeadlines(headlines) {
   return {
     type: RECEIVE_HEADLINES,
-    headlines: JSON.parse(headlines),
+    headlines: headlines,
     receivedAt: Date.now()
   }
 }
@@ -24,7 +23,7 @@ function fetchHeadlines() {
   
   return dispatch => {
     dispatch(requestHeadlines())
-    const headlines = mock_headlines
+    const headlines = Api.fetchHeadlines() || []
     return dispatch(receiveHeadlines(headlines))
   }
 }

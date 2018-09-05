@@ -1,71 +1,49 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Headline from '../../components/headline'
-import HeadlineFilter from '../../components/headlineFilter'
 import { fetchHeadlinesIfNeeded } from '../../modules/feed'
-import { fetchStoryIfNeeded }     from '../../modules/story'
 
-class Feed extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      filter: 'default'
-    }
-  }
-  
+class Feed extends Component {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(fetchHeadlinesIfNeeded())
-    dispatch(fetchStoryIfNeeded())
   }
 
   filteredHeadlines = (headlines) => {
-    if(this.state.filter === 'default'){ return headlines }
-    if(headlines === undefined){ return [] }
-    return headlines.filter((headline) => headline.category_tid === this.state.filter )
-  }
+    console.log(this.props.categoryFilter)
 
-  updateCategory = (category) => {
-    this.setState({
-      filter: category
-    })    
+    if(headlines === undefined){ return [] }
+    if(this.props.categoryFilter.length === 0){ 
+      console.log("default filter")
+      return headlines
+    }
+    return headlines.filter((headline) => this.props.categoryFilter.includes(parseInt(headline.category_tid, 10)))
   }
 
   render(){
-    let categories = new Set()
-    const filteredHeadlines = this.filteredHeadlines(this.props.headlines)
-    const headlinesList = filteredHeadlines.map((post, i) => {
-      post.category_tid.split(',').forEach((cat) => {
-        categories.add(cat)
-      })
-      
+    const filteredHeadlines = this.filteredHeadlines(this.props.headlines).map((post, i) => {
       return(
         <Headline key={i}
-                nid={post.nid}
-                title={post.title}
-                date={post.date}
-                time={post.time}
-                priority_tid={post.priority_tid}
-                category_tid={post.category_tid}
-                uuid={post.uuid} />
+          nid={post.nid}
+          title={post.title}
+          date={post.date}
+          time={post.time}
+          priority_tid={post.priority_tid}
+          category_tid={post.category_tid}
+          uuid={post.uuid} />
       )
-    })
+    })  
 
     return (
       <div className='headlines-container'>
-        <HeadlineFilter categories={Array.from(categories).sort()} onClick={this.updateCategory} />
-        {headlinesList}
+        {filteredHeadlines}
       </div>        
     )
   }
 }
 
 function mapStateToProps(state){
-  return ({
-    headlines: state.feed.headlines,
-    isFetching: false,
-    // story: state.story.story
-  })
+  return ({ headlines: state.feed.headlines })
 }
 
 export default connect(mapStateToProps)(Feed)
